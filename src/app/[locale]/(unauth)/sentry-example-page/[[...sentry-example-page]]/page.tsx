@@ -2,8 +2,23 @@
 
 import * as Sentry from '@sentry/nextjs';
 import Head from 'next/head';
+import { useEffect } from 'react';
+
+import { useRouter } from '@/libs/i18nNavigation';
 
 export default function Page() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'development') {
+      router.replace('/404');
+    }
+  }, [router]);
+
+  if (process.env.NODE_ENV !== 'development') {
+    return null;
+  }
+
   return (
     <div>
       <Head>

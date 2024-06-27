@@ -33,8 +33,5 @@ export const Env = createEnv({
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-    // SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
-    // SENTRY_LOG_LEVEL: process.env.SENTRY_LOG_LEVEL,
-    // SENTRY_DSN: process.env.SENTRY_DSN,
   },
 });
