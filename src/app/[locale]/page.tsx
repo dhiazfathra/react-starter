@@ -1,12 +1,13 @@
-import { SignUp } from '@clerk/nextjs';
 import { getTranslations } from 'next-intl/server';
 
-import { getI18nPath } from '@/utils/Helpers';
+import { Footer } from '@/templates/Footer';
+import { Hero } from '@/templates/Hero';
+import { Navbar } from '@/templates/Navbar';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({
     locale: props.params.locale,
-    namespace: 'SignUp',
+    namespace: 'Index',
   });
 
   return {
@@ -15,8 +16,12 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-const SignUpPage = (props: { params: { locale: string } }) => (
-  <SignUp path={getI18nPath('/sign-up', props.params.locale)} />
-);
-
-export default SignUpPage;
+export default function IndexPage() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Footer />
+    </>
+  );
+}
