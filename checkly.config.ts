@@ -4,14 +4,14 @@ import { EmailAlertChannel, Frequency } from 'checkly/constructs';
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
   // FIXME: add your own email address, Checkly will send you an email notification if a check fails
-  address: 'contact@creativedesignsguru.com',
+  address: 'dhiazfathra@gmail.com',
   sendDegraded: true,
 });
 
 export const config = defineConfig({
-  projectName: 'Next.js Boilerplate',
-  logicalId: 'nextjs-boilerplate',
-  repoUrl: 'https://github.com/ixartz/Next-js-Boilerplate',
+  projectName: 'React Starter',
+  logicalId: 'react-starter',
+  repoUrl: 'https://github.com/dhiazfathra/react-starter',
   checks: {
     locations: ['us-east-1', 'eu-west-1'],
     tags: ['website'],
