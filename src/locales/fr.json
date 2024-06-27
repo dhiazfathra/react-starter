@@ -1,6 +1,6 @@
 {
   "Index": {
-    "meta_title": "SaaS Template - Le template SaaS parfait pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
+    "meta_title": "Frontend template - Le template SaaS parfait pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
     "meta_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS."
   },
   "Navbar": {
@@ -13,8 +13,8 @@
     "company": "Entreprise"
   },
   "Hero": {
-    "follow_twitter": "Suivez @Ixartz sur Twitter",
-    "title": "Le parfait <important>SaaS template</important> pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
+    "follow_twitter": "Suivez @dhiazfathra sur Twitter",
+    "title": "Le parfait <important>Frontend template</important> pour construire et mettre à l'échelle votre entreprise en toute simplicité.",
     "description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
     "primary_button": "Démarrer",
     "secondary_button": "Mettez une étoile sur GitHub"
@@ -24,7 +24,7 @@
   },
   "Features": {
     "section_subtitle": "Fonctionnalités",
-    "section_title": "Débloquer le plein potentiel du SaaS Template",
+    "section_title": "Débloquer le plein potentiel du Frontend template",
     "section_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
     "feature1_title": "Node.js",
     "feature2_title": "React",
@@ -33,28 +33,6 @@
     "feature5_title": "Shadcn UI",
     "feature6_title": "ESLint",
     "feature_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS."
-  },
-  "Pricing": {
-    "section_subtitle": "Fonctionnalités",
-    "section_title": "Débloquer le plein potentiel du SaaS Template",
-    "section_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec React, TypeScript, Shadcn UI et Tailwind CSS.",
-    "button_text": "Démarrer"
-  },
-  "PricingPlan": {
-    "free_plan_name": "Gratuit",
-    "premium_plan_name": "Premium",
-    "enterprise_plan_name": "Enterprise",
-    "free_plan_description": "Pour les particuliers",
-    "premium_plan_description": "Pour les petites équipes",
-    "enterprise_plan_description": "Pour les leaders de l'industrie",
-    "feature_team_member": "{number} membres",
-    "feature_website": "{number} sites internet",
-    "feature_storage": "{number} Go de stockage",
-    "feature_transfer": "{number} TB de transfert",
-    "feature_email_support": "Support par e-mail",
-    "plan_interval_month": "mois",
-    "plan_interval_year": "année",
-    "next_renew_date": "Votre abonnement sera renouvelé le {date}"
   },
   "FAQ": {
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
@@ -78,14 +56,6 @@
   "ProtectFallback": {
     "not_enough_permission": "Vous n'avez pas les permissions pour effectuer cette action"
   },
-  "SignIn": {
-    "meta_title": "Se connecter",
-    "meta_description": "Connectez-vous à votre compte avec facilité."
-  },
-  "SignUp": {
-    "meta_title": "S'inscrire",
-    "meta_description": "Créez un compte sans effort grâce à notre processus d'inscription intuitif."
-  },
   "DashboardLayout": {
     "home": "Accueil",
     "todos": "Todos",
@@ -94,7 +64,7 @@
     "settings": "Réglages"
   },
   "Dashboard": {
-    "meta_title": "Tableau de bord du SaaS Template",
+    "meta_title": "Tableau de bord du Frontend template",
     "meta_description": "Un template gratuit et open-source de landing page pour votre entreprise SaaS, construit avec Next.js, TypeScript, Shadcn UI et Tailwind CSS."
   },
   "DashboardIndex": {
