@@ -1,9 +1,9 @@
 'use client';
 
-import { HelpCircle, Home, Settings, User } from 'lucide-react';
+import { HelpCircle, Home, Menu, Settings, User, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/utils/Helpers';
@@ -17,38 +17,55 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r bg-white px-4 py-8 dark:border-gray-700 dark:bg-gray-900 rtl:border-l rtl:border-r-0">
-      <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
-        Logo
-      </h2>
+    <aside
+      className={cn(
+        'flex h-screen flex-col border-r bg-white transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 rtl:border-l rtl:border-r-0',
+        isCollapsed ? 'w-16' : 'w-64',
+      )}
+    >
+      <div className="flex items-center justify-between p-4">
+        {!isCollapsed && (
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
+            Logo
+          </h2>
+        )}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          {isCollapsed ? <Menu size={20} /> : <X size={20} />}
+        </Button>
+      </div>
 
-      <div className="mt-6 flex flex-1 flex-col justify-between">
-        <nav>
-          {sidebarItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <Button
-                variant="ghost"
-                className={cn(
-                  'mb-2 w-full justify-start',
-                  pathname === item.href
-                    ? 'bg-gray-100 dark:bg-gray-800'
-                    : 'hover:bg-gray-100 dark:hover:bg-gray-800',
-                )}
-              >
-                <item.icon className="mr-2 size-5" />
-                {item.name}
-              </Button>
-            </Link>
-          ))}
-        </nav>
+      <nav className="flex-1 px-2">
+        {sidebarItems.map((item) => (
+          <Link key={item.name} href={item.href}>
+            <Button
+              variant="ghost"
+              className={cn(
+                'mb-2 w-full justify-start',
+                pathname === item.href
+                  ? 'bg-gray-100 dark:bg-gray-800'
+                  : 'hover:bg-gray-100 dark:hover:bg-gray-800',
+                isCollapsed ? 'px-2' : 'px-4',
+              )}
+            >
+              <item.icon className="size-5" />
+              {!isCollapsed && <span className="ml-2">{item.name}</span>}
+            </Button>
+          </Link>
+        ))}
+      </nav>
 
-        <div className="mt-6">
-          <Button variant="outline" className="w-full">
-            Log out
-          </Button>
-        </div>
+      <div className="p-4">
+        <Button variant="outline" className="w-full">
+          {isCollapsed ? <User size={20} /> : 'Log out'}
+        </Button>
       </div>
     </aside>
   );

@@ -21,9 +21,11 @@ export default function IndexPage() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex min-h-screen flex-1 flex-col">
         <Navbar />
-        <Hero />
+        <main className="flex-1">
+          <Hero />
+        </main>
         <Footer />
       </div>
     </div>
