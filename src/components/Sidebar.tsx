@@ -3,7 +3,7 @@
 import { HelpCircle, Home, Menu, Settings, User, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/utils/Helpers';
@@ -15,15 +15,26 @@ const sidebarItems = [
   { name: 'Help', href: '/help', icon: HelpCircle },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Close sidebar when route changes (for mobile)
+  useEffect(() => {
+    onClose();
+  }, [pathname, onClose]);
 
   return (
     <aside
       className={cn(
-        'flex h-screen flex-col border-r bg-white transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 rtl:border-l rtl:border-r-0',
+        'fixed inset-y-0 left-0 z-50 flex flex-col border-r bg-white transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 rtl:border-l rtl:border-r-0',
         isCollapsed ? 'w-16' : 'w-64',
+        isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
       )}
     >
       <div className="flex items-center justify-between p-4">
@@ -36,13 +47,23 @@ const Sidebar = () => {
           variant="ghost"
           size="icon"
           onClick={() => setIsCollapsed(!isCollapsed)}
+          className="hidden md:flex"
           aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {isCollapsed ? <Menu size={20} /> : <X size={20} />}
         </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClose}
+          className="md:hidden"
+          aria-label="Close sidebar"
+        >
+          <X size={20} />
+        </Button>
       </div>
 
-      <nav className="flex-1 px-2">
+      <nav className="flex-1 overflow-y-auto px-2 py-4">
         {sidebarItems.map((item) => (
           <Link key={item.name} href={item.href}>
             <Button

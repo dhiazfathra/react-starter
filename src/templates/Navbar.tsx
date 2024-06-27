@@ -8,13 +8,23 @@ import { Section } from '@/features/landing/Section';
 
 import { Logo } from './Logo';
 
-const Navbar = () => {
+interface NavbarProps {
+  children?: React.ReactNode;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ children }) => {
   const t = useTranslations('Navbar');
 
   return (
     <Section className="px-3 py-6">
       <CenteredMenu
-        logo={<Logo />}
+        logo={
+          <div className="flex items-center">
+            {children}{' '}
+            {/* This is where the sidebar toggle button will be rendered */}
+            <Logo />
+          </div>
+        }
         rightMenu={
           <>
             <li>
