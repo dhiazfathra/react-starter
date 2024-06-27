@@ -170,13 +170,13 @@ turso auth signup # Sign up to Turso
 Then, create a new database:
 
 ```shell
-turso db create nextjs-boilerplate
+turso db create react-starter
 ```
 
 Now, you need to update the `DATABASE_URL` in `.env` file with the database URL provided by Turso:
 
 ```shell
-turso db show nextjs-boilerplate --url
+turso db show react-starter --url
 
 # .env
 # DATABASE_URL=libsql://[RANDOM-CHARS]-[DB-NAME]-[ORG-NAME].turso.io
@@ -185,7 +185,7 @@ turso db show nextjs-boilerplate --url
 Finally, you also need to create a new environment variable `DATABASE_AUTH_TOKEN` in `.env.local` (not tracked by Git) with the auth token provided by Turso:
 
 ```shell
-turso db tokens create nextjs-boilerplate
+turso db tokens create react-starter
 
 # .env.local
 # DATABASE_AUTH_TOKEN=[your-auth-token]
