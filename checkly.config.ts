@@ -3,7 +3,6 @@ import { defineConfig } from 'checkly';
 import { EmailAlertChannel, Frequency } from 'checkly/constructs';
 
 const emailChannel = new EmailAlertChannel('email-channel-1', {
-  // FIXME: add your own email address, Checkly will send you an email notification if a check fails
   address: 'dhiazfathra@gmail.com',
   sendDegraded: true,
 });
@@ -19,8 +18,7 @@ export const config = defineConfig({
     environmentVariables: [
       {
         key: 'PRODUCTION_URL',
-        // FIXME: Add your own production URL
-        value: 'https://google.com',
+        value: 'https://react-starterct-starter.vercel.app/',
       },
     ],
     browserChecks: {
