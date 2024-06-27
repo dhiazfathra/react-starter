@@ -24,7 +24,7 @@ const Navbar = () => {
               <Link href="/sign-in">{t('sign_in')}</Link>
             </li>
             <li>
-              <Link className={buttonVariants()} href="/sign-up">
+              <Link className={buttonVariants()} href="/404">
                 {t('sign_up')}
               </Link>
             </li>
@@ -32,23 +32,23 @@ const Navbar = () => {
         }
       >
         <li>
-          <Link href="/sign-up">{t('product')}</Link>
+          <Link href="/404">{t('product')}</Link>
         </li>
 
         <li>
-          <Link href="/sign-up">{t('docs')}</Link>
+          <Link href="/404">{t('docs')}</Link>
         </li>
 
         <li>
-          <Link href="/sign-up">{t('blog')}</Link>
+          <Link href="/404">{t('blog')}</Link>
         </li>
 
         <li>
-          <Link href="/sign-up">{t('community')}</Link>
+          <Link href="/404">{t('community')}</Link>
         </li>
 
         <li>
-          <Link href="/sign-up">{t('company')}</Link>
+          <Link href="/404">{t('company')}</Link>
         </li>
       </CenteredMenu>
     </Section>

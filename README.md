@@ -4,7 +4,7 @@ https://github.com/ixartz/SaaS-Boilerplate
 
 # Starter project for Next JS 14+, Tailwind CSS 3.4, Shadcn UI, and TypeScript
 
-🚀 Boilerplate and Starter for Next.js with App Router support, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, Vitest (replacing Jest), Testing Library, Commitlint, VSCode, PostCSS, Tailwind CSS, Authentication with [Clerk](https://go.clerk.com/zGlzydF), Database with DrizzleORM (SQLite, PostgreSQL, and MySQL) and [Turso](https://turso.tech/?utm_source=nextjsstarterbp), Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo), Logging with Pino.js and Log Management, Monitoring as Code, Storybook, Multi-language (i18n), and more.
+🚀 Boilerplate and Starter for Next.js with App Router support, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, Vitest (replacing Jest), Testing Library, Commitlint, VSCode, PostCSS, Tailwind CSS, Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo), Logging with Pino.js and Log Management, Monitoring as Code, Storybook, Multi-language (i18n), and more.
 
 Check the live demo at [React starter](https://react-starterct-starter.vercel.app/).
 
@@ -82,17 +82,6 @@ npm run dev
 
 Open http://localhost:3000 with your favorite browser to see your project.
 
-### Set up authentication
-
-Create a Clerk account at [Clerk.com](https://go.clerk.com/zGlzydF) and create a new application in Clerk Dashboard. Then, copy `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` into `.env.local` file (not tracked by Git):
-
-```shell
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_pub_key
-CLERK_SECRET_KEY=your_clerk_secret_key
-```
-
-Now, you can a fully working authentication system with Next.js: Sign up, Sign in, Sign out, Forgot password, Reset password, Update profile, Update password, Update email, Delete account, and more.
-
 ### Translation (i18n) setup
 
 For translation, the project uses `next-intl` combined with [Crowdin](https://l.crowdin.com/next-js). As a developer, you only need to take care of the English (or another default language) version. Other languages are automatically generated and handled by Crowdin. You can use Crowdin to collaborate with your translation team or translate the messages yourself with the help of machine translation.
@@ -110,7 +99,6 @@ After defining the environment variables in your GitHub Actions, your localizati
 ├── .husky                          # Husky configuration
 ├── .storybook                      # Storybook folder
 ├── .vscode                         # VSCode configuration
-├── migrations                      # Database migrations
 ├── public                          # Public assets folder
 ├── scripts                         # Scripts folder
 ├── src
@@ -132,7 +120,7 @@ After defining the environment variables in your GitHub Actions, your localizati
 
 ### Customization
 
-You can easily configure Next.js SaaS Boilerplate by making a search in the whole project with `FIXME:` for making quick customization. Here is some of the most important files to customize:
+You can easily configure React starter by making a search in the whole project with `FIXME:` for making quick customization. Here is some of the most important files to customize:
 
 - `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your website favicon, you can generate from https://favicon.io/favicon-converter/
 - `src/utils/AppConfig.ts`: configuration file
@@ -169,35 +157,9 @@ npx playwright install # Only for the first time in a new environment
 npm run test:e2e
 ```
 
-### Enable Edge runtime (optional)
-
-The App Router folder is compatible with the Edge runtime. You can enable it by uncommenting the following lines `src/app/layouts.tsx`:
-
-```tsx
-// export const runtime = 'edge';
-```
-
-For your information, the database migration is not compatible with the Edge runtime. So, you need to disable the automatic migration in `src/libs/DB.ts`:
-
-```tsx
-if (process.env.NODE_ENV === 'development') {
-  await migrate(db, { migrationsFolder: './migrations' });
-}
-```
-
-After disabling it, you are required to run the migration manually with:
-
-```shell
-npm run db:migrate
-```
-
-You also require to run the command each time you want to update the database schema.
-
 ### Deploy to production
 
-During the build process, the database migration is automatically executed. So, you don't need to run the migration manually. But, in your environment variable, `DATABASE_URL` and `DATABASE_AUTH_TOKEN` need to be defined.
-
-Then, you can generate a production build with:
+You can generate a production build with:
 
 ```shell
 $ npm run build
@@ -208,8 +170,6 @@ It generates an optimized production build of the boilerplate. For testing the g
 ```shell
 $ npm run start
 ```
-
-You also need to defined the environment variables `CLERK_SECRET_KEY` using your own key.
 
 The command starts a local server with the production build. Then, you can now open http://localhost:3000 with your favorite browser to see the project.
 
@@ -260,10 +220,6 @@ If you are VSCode users, you can have a better integration with VSCode by instal
 With the plugins installed on your VSCode, ESLint and Prettier can automatically fix the code and show you the errors. Same goes for testing, you can install VSCode Vitest extension to automatically run your tests and it also show the code coverage in context.
 
 Pro tips: if you need a project wide type checking with TypeScript, you can run a build with <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> on Mac.
-
-### Contributions
-
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug. Totally open to any suggestions and improvements.
 
 ### License
 
