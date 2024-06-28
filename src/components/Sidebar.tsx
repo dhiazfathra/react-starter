@@ -24,7 +24,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  // Close sidebar when route changes (for mobile)
   useEffect(() => {
     onClose();
   }, [pathname, onClose]);
@@ -33,12 +32,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     <aside
       className={cn(
         'fixed left-0 top-0 z-40 h-screen transition-all duration-300',
+        'bg-white dark:bg-gray-900', // Add background color
         isCollapsed ? 'w-16' : 'w-64',
         isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
         'md:relative md:translate-x-0', // Make it relative on md screens and above
       )}
     >
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between border-b p-4 dark:border-gray-700">
         {!isCollapsed && (
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
             Logo
