@@ -16,12 +16,13 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   const t = useTranslations('Navbar');
 
   return (
-    <Section className="px-3 py-6">
+    <Section className="px-3 py-6 ">
+      {' '}
+      {/* Add left margin on md screens */}
       <CenteredMenu
         logo={
           <div className="flex items-center">
-            {children}{' '}
-            {/* This is where the sidebar toggle button will be rendered */}
+            {children}
             <Logo />
           </div>
         }

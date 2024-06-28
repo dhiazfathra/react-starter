@@ -32,9 +32,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   return (
     <aside
       className={cn(
-        'fixed inset-y-0 left-0 z-50 flex flex-col border-r bg-white transition-all duration-300 dark:border-gray-700 dark:bg-gray-900 rtl:border-l rtl:border-r-0',
+        'fixed left-0 top-0 z-40 h-screen transition-all duration-300',
         isCollapsed ? 'w-16' : 'w-64',
         isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
+        'md:relative md:translate-x-0', // Make it relative on md screens and above
       )}
     >
       <div className="flex items-center justify-between p-4">

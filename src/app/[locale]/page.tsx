@@ -41,20 +41,23 @@ export default function IndexPage() {
             <Menu size={24} />
           </Button>
         </Navbar>
-        <main className="flex-1">
+        <main className="flex-1 p-4">
+          {' '}
+          {/* Add padding here */}
           <Hero />
         </main>
         <Footer />
       </div>
 
-      {/* Accessible Overlay for mobile */}
+      {/* Overlay for mobile */}
       {isSidebarOpen && (
-        <Button
-          className="fixed inset-0 z-40 size-full bg-black bg-opacity-50 md:hidden"
+        <div
+          className="fixed inset-0 z-30 bg-black bg-opacity-50 md:hidden"
           onClick={closeSidebar}
           onKeyDown={handleKeyDown}
-          aria-label="Close sidebar"
           tabIndex={0}
+          role="button"
+          aria-label="Close sidebar"
         />
       )}
     </div>
