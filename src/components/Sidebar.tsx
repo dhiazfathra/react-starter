@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { useSidebar } from '@/contexts/SidebarContext';
 import { cn } from '@/utils/Helpers';
 
 const sidebarItems = [
@@ -23,6 +24,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { isTransparent, toggleTransparency } = useSidebar();
 
   useEffect(() => {
     onClose();
@@ -32,10 +34,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     <aside
       className={cn(
         'fixed left-0 top-0 z-40 h-screen transition-all duration-300',
-        'bg-white dark:bg-gray-900', // Add background color
+        isTransparent
+          ? 'bg-white/1 backdrop-blur-sm dark:bg-gray-900/80'
+          : 'bg-white dark:bg-gray-900',
         isCollapsed ? 'w-16' : 'w-64',
         isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
-        'md:relative md:translate-x-0', // Make it relative on md screens and above
+        'md:relative md:translate-x-0',
       )}
     >
       <div className="flex items-center justify-between border-b p-4 dark:border-gray-700">
@@ -85,8 +89,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       </nav>
 
       <div className="p-4">
-        <Button variant="outline" className="w-full">
-          {isCollapsed ? <User size={20} /> : 'Log out'}
+        <Button onClick={toggleTransparency} className="w-full">
+          {isTransparent ? 'Make Opaque' : 'Make Transparent'}
         </Button>
       </div>
     </aside>
