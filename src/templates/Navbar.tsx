@@ -18,7 +18,6 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   return (
     <Section className="px-3 py-6 ">
       {' '}
-      {/* Add left margin on md screens */}
       <CenteredMenu
         logo={
           <div className="flex items-center">

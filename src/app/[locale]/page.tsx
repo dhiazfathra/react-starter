@@ -17,6 +17,10 @@ export default function IndexPage() {
     setIsSidebarOpen(false);
   }, []);
 
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarOpen((prev) => !prev);
+  }, []);
+
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -28,7 +32,7 @@ export default function IndexPage() {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen flex-col md:flex-row">
+      <div className="flex min-h-screen flex-col">
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
         <div className="flex min-h-screen flex-1 flex-col">
@@ -36,25 +40,23 @@ export default function IndexPage() {
             <Button
               variant="ghost"
               size="icon"
-              className="mr-2 md:hidden"
-              onClick={() => setIsSidebarOpen(true)}
-              aria-label="Open sidebar"
+              className="mr-2"
+              onClick={toggleSidebar}
+              aria-label="Toggle sidebar"
             >
               <Menu size={24} />
             </Button>
           </Navbar>
           <main className="flex-1 p-4">
-            {' '}
-            {/* Add padding here */}
             <Hero />
           </main>
           <Footer />
         </div>
 
-        {/* Overlay for mobile */}
+        {/* Overlay */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 z-30 bg-black/50 md:hidden"
+            className="fixed inset-0 z-30 bg-black/50"
             onClick={closeSidebar}
             onKeyDown={handleKeyDown}
             tabIndex={0}

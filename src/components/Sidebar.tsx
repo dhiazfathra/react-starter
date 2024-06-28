@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { useSidebar } from '@/contexts/SidebarContext';
 import { cn } from '@/utils/Helpers';
 
+import { Switch } from './ui/switch';
+
 const sidebarItems = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Profile', href: '/profile', icon: User },
@@ -38,8 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           ? 'bg-white/1 backdrop-blur-sm dark:bg-gray-900/80'
           : 'bg-white dark:bg-gray-900',
         isCollapsed ? 'w-16' : 'w-64',
-        isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
-        'md:relative md:translate-x-0',
+        isOpen ? 'translate-x-0' : '-translate-x-full',
       )}
     >
       <div className="flex items-center justify-between border-b p-4 dark:border-gray-700">
@@ -88,10 +89,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         ))}
       </nav>
 
-      <div className="p-4">
-        <Button onClick={toggleTransparency} className="w-full">
-          {isTransparent ? 'Make Opaque' : 'Make Transparent'}
-        </Button>
+      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center p-4">
+        <div className="flex items-center space-x-2">
+          <span className="text-sm">Opaque</span>
+          <Switch
+            checked={isTransparent}
+            onCheckedChange={toggleTransparency}
+            aria-label="Toggle sidebar transparency"
+          />
+          <span className="text-sm">Transparent</span>
+        </div>
       </div>
     </aside>
   );
