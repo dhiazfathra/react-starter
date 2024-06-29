@@ -1,7 +1,7 @@
 {
   "Index": {
-    "meta_title": "A Frontend template to bootstrap your app.",
-    "meta_description": "A Frontend template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
+    "meta_title": "A Frontend Template to bootstrap your app.",
+    "meta_description": "A Frontend Template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
   },
   "Navbar": {
     "sign_in": "Sign In",
@@ -14,8 +14,8 @@
   },
   "Hero": {
     "follow_twitter": "Follow @dhiazfathra on Twitter",
-    "title": "The perfect <important>Frontend template</important> to build and scale your business with ease.",
-    "description": "A Frontend template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
+    "title": "The perfect <important>Frontend Template</important> to build and scale your business with ease.",
+    "description": "A Frontend Template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
     "primary_button": "Get Started",
     "secondary_button": "Star on GitHub"
   },
@@ -25,14 +25,14 @@
   "Features": {
     "section_subtitle": "Features",
     "section_title": "Unlock the Full Potential of the SaaS Template",
-    "section_description": "A Frontend template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
+    "section_description": "A Frontend Template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS.",
     "feature1_title": "Node.js",
     "feature2_title": "React",
     "feature3_title": "Tailwind CSS",
     "feature4_title": "TypeScript",
     "feature5_title": "Shadcn UI",
     "feature6_title": "ESLint",
-    "feature_description": "A Frontend template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
+    "feature_description": "A Frontend Template for your app, built with React, TypeScript, Shadcn UI, and Tailwind CSS."
   },
   "FAQ": {
     "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
